@@ -1,11 +1,15 @@
 const warga=[
+	{a:'A3-27', b:'IMAM SYAHRONI'},
+	{a:'C3-12', b:'TUTUG S.'},
+	{a:'C3-14', b:'HERRY EFFENDI'},
+	{a:'C5-14', b:'HERU SETIAWAN'},
 	{a:'C5-07', b:'AGUS SUTOMO'},
+	{a:'C5-15', b:'MARULI'},
 	{a:'A3-25', b:'NANANG S.B.'},
 	{a:'A3-15', b:'IRAWAN Y.'},
 	{a:'C4-07', b:'SAID AMIR'},
 	{a:'C3-16', b:'M. SOKIB'},
 	{a:'C3-15', b:'ANDRA'},
-	{a:'A3-27', b:'IMAM SYAHRONI'},
 	{a:'C5-01', b:'YUDI SETIAWAN'},
 	{a:'C5-16', b:'KUSNO'},
 	{a:'C3-19', b:'SUWITO'},
@@ -17,17 +21,13 @@ const warga=[
 	{a:'C4-01', b:'SHOLEH'},
 	{a:'C3-18', b:'ARIS PRIAMBODO'},
 	{a:'A3-16', b:'AGUSTIAN (Toko EB)'},
-	{a:'C5-15', b:'MARULI'},
 	{a:'A3-12', b:'DWI H. ERWANTO'},
 	{a:'A3-17', b:'MULYANTO'},
-	{a:'C3-12', b:'TUTUG S.'},
 	{a:'C5-15', b:'AMRI M.'},
 	{a:'C4-02', b:'M. MUNIR'},
 	{a:'C4-03', b:'YUDI ARIFIN'},
-	{a:'C5-14', b:'HERU SETIAWAN'},
 	{a:'C5-08', b:'WAHID'},
 	{a:'C4-09', b:'AGUS MIMIN'},
-	{a:'C3-14', b:'HERRY EFFENDI'},
 	{a:'A3-10', b:'TOKO KARUNIA'},
 	{a:'A3-28', b:'PURNOMO'},
 	{a:'C3-17', b:'YULIANTO'},
@@ -37,10 +37,8 @@ const warga=[
 	{a:'A3-25', b:'RAHMAN (Parfum)'},
 ]
 
-const daftarWarga=()=>{
-	const a=el({a:'div', b: document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:100vh; overflow-y:scroll; background:white; padding:3vmin; display:grid; grid-template-columns:1fr min-content; gap:3px; align-content:start;'}, e:{click:a=>{a.stopPropagation()}}})
-	el({a:'div', b:a, c:'NAMA', d:{style:'background:#abc; border-radius:1vmin; font-weight:bold; padding:3vmin; text-align:center; position:sticky; top:-3vmin;'}})
-	el({a:'div', b:a, c:'ALAMAT', d:{style:'background:#abc; border-radius:1vmin; font-weight:bold; padding:3vmin; text-align:center; position:sticky; top:-3vmin;'}})
+const viewWarga=a=>{
+	while (a.children.length>2) a.removeChild(a.children[2])
 	warga.forEach((b,c)=>{
 		const d=(c%2?'background:#eefaff;':'background:#eefffa;')+'border-radius:1vmin; padding:1.5vmin 3vmin;'
 		el({a:'div', b:a, c:b.b, d:{style:d}})
@@ -48,8 +46,43 @@ const daftarWarga=()=>{
 	})
 	el({a:'div', b:a, c:'a', d:{style:'background:rgba(0,0,0,0); color:rgba(0,0,0,0); padding:5vmin 0; margin:5vmin 0;'}})
 	el({a:'div', b:a, c:'a', d:{style:'background:rgba(0,0,0,0); color:rgba(0,0,0,0); padding:5vmin 0; margin:5vmin 0;'}})
-	const b=el({a:'div', b: document.body, d:{style:'position:fixed; bottom:0; left:0; width:100vw; background:white; padding:3vmin; display:flex; align-items:center; justify-content:center;'}, e:{click:a=>{a.stopPropagation()}}})
-	el({a:'button', b:b, c:'Kembali', e:{click:a=>{document.body.removeChild(a.target.parentElement.previousElementSibling);document.body.removeChild(a.target.parentElement)}}})
+}
+
+const daftarWarga=()=>{
+	const a=el({a:'div', b: document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:100vh; overflow-y:scroll; background:white; padding:3vmin; display:grid; grid-template-columns:1fr min-content; gap:3px; align-content:start;'}, e:{click:a=>{a.stopPropagation()}}})
+	const b=el({a:'div', b:a, d:{style:'background:#abc; border-radius:1vmin; padding:3vmin; position:sticky; top:-3vmin; display:flex; gap:1vmin;'}})
+	el({a:'div', b:b, c:'NAMA', d:{style:'flex:1; font-weight:bold; text-align:center;'}})
+	el({a:'div', b:b, c:'\u25AC', d:{style:'padding:0 5px; pointer:default;'}, e:{click:a=>{
+		if (a.target.textContent=='\u25BC') {
+			a.target.textContent='\u25B2'
+			warga.sort((a,b)=>b.b.localeCompare(a.b))
+			viewWarga(a.target.parentElement.parentElement)
+		} else {
+			a.target.textContent='\u25BC'
+			warga.sort((a,b)=>a.b.localeCompare(b.b))
+			viewWarga(a.target.parentElement.parentElement)
+		}
+		a.target.parentElement.nextElementSibling.children[1].textContent='\u25AC'
+	}}})
+	
+	const c=el({a:'div', b:a, d:{style:'background:#abc; border-radius:1vmin; padding:3vmin; position:sticky; top:-3vmin; display:flex; gap:1vmin;'}})
+	el({a:'div', b:c, c:'ALAMAT', d:{style:'flex:1; font-weight:bold; text-align:center;'}})
+	el({a:'div', b:c, c:'\u25B2', d:{style:'padding:0 5px; pointer:default;'}, e:{click:a=>{
+		if (a.target.textContent=='\u25BC') {
+			a.target.textContent='\u25B2'
+			warga.sort((a,b)=>b.a.localeCompare(a.a))
+			viewWarga(a.target.parentElement.parentElement)
+		} else {
+			a.target.textContent='\u25BC'
+			warga.sort((a,b)=>a.a.localeCompare(b.a))
+			viewWarga(a.target.parentElement.parentElement)
+		}
+		a.target.parentElement.previousElementSibling.children[1].textContent='\u25AC'
+	}}})
+	
+	viewWarga(a)
+	const d=el({a:'div', b: document.body, d:{style:'position:fixed; bottom:0; left:0; width:100vw; background:white; padding:3vmin; display:flex; align-items:center; justify-content:center;'}, e:{click:a=>{a.stopPropagation()}}})
+	el({a:'button', b:d, c:'Kembali', e:{click:a=>{document.body.removeChild(a.target.parentElement.previousElementSibling);document.body.removeChild(a.target.parentElement)}}})
 }
 
 const bln=['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
