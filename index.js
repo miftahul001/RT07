@@ -67,7 +67,7 @@ const daftarWarga=()=>{
 	
 	const c=el({a:'div', b:a, d:{style:'background:#abc; border-radius:1vmin; padding:3vmin; position:sticky; top:-3vmin; display:flex; gap:1vmin;'}})
 	el({a:'div', b:c, c:'ALAMAT', d:{style:'flex:1; font-weight:bold; text-align:center;'}})
-	el({a:'div', b:c, c:'\u25B2', d:{style:'padding:0 5px; pointer:default;'}, e:{click:a=>{
+	el({a:'div', b:c, c:'\u25AC', d:{style:'padding:0 5px; pointer:default;'}, e:{click:a=>{
 		if (a.target.textContent=='\u25BC') {
 			a.target.textContent='\u25B2'
 			warga.sort((a,b)=>b.a.localeCompare(a.a))
