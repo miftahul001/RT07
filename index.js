@@ -104,8 +104,6 @@ const pilihHari=()=>{
 	el({a:'div', b:a, c:'Jumlah Grup'})
 	el({a:'input', b:a, d:{type:'number', size:5, style:'padding-left:1vmin;', value:6}})
 	el({a:'div', b:a})
-	el({a:'button', b:a, c:'Upload Daftar Jaga Lama'})
-	el({a:'div', b:a})
 	el({a:'button', b:a, c:'Lanjut', e:{click:a=>{
 		const b=(a=>{a=new Date(a[6], bln.indexOf(a[4]), a[2]); return {b:a.getMonth(), d:a.getDate(), t:a.getFullYear()}} )(a.target.parentElement.children[1].value.split(' '));
 		hasil({a:parseInt(a.target.parentElement.children[3].value)||6, ...b})
@@ -232,7 +230,8 @@ const hasil=a=>{
 
 addEventListener('load', ()=>{
 	el({a:'div', b: document.body, c:'DAFTAR JAGA RT 07 RW 04', d:{style:'font-size:4vmin; font-weight:bold; margin-bottom:5vmin; padding:5vmin; text-align:center;'}})
-	el({a:'button', b:el({a:'button', b:el({a:'div', b: document.body, d:{style:'display:flex; flex-direction:column; gap:3vmin; padding:3vmin;'}}),
+	el({a:'button', b:el({a:'button', b:el({a:'button', b:el({a:'div', b: document.body, d:{style:'display:flex; flex-direction:column; gap:3vmin; padding:3vmin;'}}),
+		c:'Upload Daftar Jaga Lama'}).parentElement,
 		c:'Buat Daftar Jaga Baru', e:{click:pilihHari}}).parentElement,
 		c:'Daftar Warga RT 07 RW 04', e:{click:daftarWarga}})
 })
