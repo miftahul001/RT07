@@ -4,7 +4,7 @@ const warga=[
 	{a:'C3-14', b:'HERRY EFFENDI'},
 	{a:'C5-14', b:'HERU SETIAWAN'},
 	{a:'C5-07', b:'AGUS SUTOMO'},
-	{a:'C5-15', b:'MARULI'},
+	{a:'A3-11', b:'MARULI'},
 	{a:'A3-25', b:'NANANG S.B.'},
 	{a:'A3-15', b:'IRAWAN Y.'},
 	{a:'C4-07', b:'SAID AMIR'},
@@ -34,7 +34,7 @@ const warga=[
 	{a:'C5-06', b:'JUNAIDI'},
 	{a:'C4-04', b:'KELVIN'},
 	{a:'C3-21', b:'JOKO (Kos2an)'},
-	{a:'A3-25', b:'RAHMAN (Parfum)'},
+	{a:'A3-14', b:'RAHMAN (Parfum)'},
 ]
 
 const viewWarga=a=>{
