@@ -174,15 +174,18 @@ const gambar=()=>{
 	
 	html2canvas(b, {
 		allowTaint: true,
-		//useCORS: true,
-		//logging: false,
 		height: b.height,
 		windowHeight: b.height,
 		width: b.width,
 		windowWidth: b.width,
-	}).then(a=>{window.open(a.toDataURL())})
+	}).then(a=>{
+		el({a:'a', b:document.body, d:{
+			download:'JAGA-RT07-'+((a=>bln[a.getMonth()]+'-'+a.getFullYear())(new Date()))+'.png',
+			href: a.toDataURL('image/png').replace(/^data:image\/png/,'data:application/octet-stream')
+		}, e:{click:a=>{document.body.removeChild(a.target)}}}).click()
+	});
 	
-	new jspdf.jsPDF('l', 'pt', [842, 1191]).html(b, { callback: doc=>{ doc.save() } })
+	new jspdf.jsPDF('l', 'pt', [842, 1191]).html(b, { callback: doc=>{ doc.save('JAGA-RT07-'+((a=>bln[a.getMonth()]+'-'+a.getFullYear())(new Date()))+'.pdf') } })
 }
 
 const hasil=a=>{
