@@ -172,6 +172,10 @@ const gambar=()=>{
 	el({a:'div', b:d.children[1], c:'SIE KEAMANAN', d:{style:'font:bold 10px Arial;'}})
 	el({a:'div', b:d.children[1], c:'( Gatot P. )', d:{style:'font:bold 10px Times; white-space:pre;'}})
 	
+	el({a:'a', b:document.body, d:{
+		download:'JAGA-RT07-'+((a=>bln[a.getMonth()]+'-'+a.getFullYear())(new Date()))+'.json',
+		href: URL.createObjectURL(new Blob([JSON.stringify(data)], {type:'application/json'}))
+	}, e:{click:a=>{ document.body.removeChild(a.target)}}}).click()
 	new jspdf.jsPDF('l', 'pt', [842, 1191]).html(b, { callback: doc=>{ doc.save('JAGA-RT07-'+((a=>bln[a.getMonth()]+'-'+a.getFullYear())(new Date()))+'.pdf') } })
 	html2canvas(b, {
 		allowTaint: true,
@@ -255,7 +259,7 @@ addEventListener('load', ()=>{
 	el({a:'div', b: document.body, c:'DAFTAR JAGA RT 07 RW 04', d:{style:'font-size:4vmin; font-weight:bold; margin-bottom:5vmin; padding:5vmin; text-align:center;'}})
 	el({a:'button', b:el({a:'button', b:el({a:'button', b:el({a:'div', b: document.body, d:{style:'display:flex; flex-direction:column; gap:3vmin; padding:3vmin;'}}),
 		c:'Upload Daftar Jaga Lama', e:{click:a=>{
-			el({a:'input', d:{type:'file'}, e:{change:a=>{
+			el({a:'input', d:{type:'file', accept:'application/JSON, application/json'}, e:{change:a=>{
 				const b=new FileReader()
 				b.onload=()=>{
 					lama.length>0&&lama.splice(0,lama.length)
