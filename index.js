@@ -114,6 +114,77 @@ const pilihHari=()=>{
 	el({a:'button', b:a, c:'Kembali', e:{click:a=>{document.body.removeChild(a.target.parentElement)}}})
 }
 
+const gambar=()=>{
+	const b=el({a:'div', b:el({a:'div', b:el({a:'div', b:document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:100vh; display:flex; overflow:scroll; background:black;'}})}), d:{style:'background:white; width:1191px; height:842px; display:flex; flex-direction:column; gap:1px; justify-content: center; align-items:center;'}})
+	const style1={style:'font: bold 15px Arial;'}
+	el({a:'div', b:b, c:'DAFTAR JAGA POS KAMLING RT 07 / RW 04 PERUMTAS III', d:style1})
+	el({a:'div', b:b, c:'Desa POPOH Kec. WONOAYU Kab. SIDOARJO', d:style1})
+	el({a:'div', b:b, c:'Nomer :      / TAS III / RT 07 /   / ' +new Date().getFullYear(), d:{style:style1.style+'white-space:pre;'}})
+	el({a:'div', b:b, d:{style:'height:30px;'}})
+	
+	const c=el({a:'div', b:b, d:{style:'width:1111px; background:black; display:grid; grid-template-columns:repeat('+data.length+',min-content min-content auto); gap:1px; padding:1px;'}});
+	
+	const style2={style:'font:11px Times; padding:3px;'};
+	(()=>{
+		const b={style:'background:white; display:flex; flex-direction:column; justify-content:center; align-items:center;'}
+		data.forEach(a=>{
+			el({a:'div', b:el({a:'div', b:el({a:'div', b:c, d:b}), c:'GRUP', d:style2}).parentElement, c:a.a, d:style2})
+			el({a:'div', b:el({a:'div', b:el({a:'div', b:c, d:b}), c:'Hari', d:style2}).parentElement, c:'Sabtu', d:style2})
+			el({a:'div', b:el({a:'div', b:el({a:'div', b:el({a:'div', b:c, d:b}), c:a.b[0], d:style2}).parentElement, c:a.b[1], d:style2}).parentElement, c:a.b[2], d:style2})
+		})
+	})()
+	
+	const style3='font:11px Times; background:white; display:flex; align-items:center;'
+	data[0].c.forEach((a,b)=>{
+		data.forEach(a=>{
+			el({a:'div', b:c, c:b+1, d:{style:style3 + 'justify-content:center;'}})
+			el({a:'div', b:c, c:a.c[b]?a.c[b].a:'', d:{style:style3 + 'justify-content:center; padding:3px;'}})
+			el({a:'div', b:c, c:a.c[b]?a.c[b].b:'', d:{style:style3 + 'padding:3px 3px 3px 5px;'}})
+		})
+	})
+	
+	el({a:'div', b:c, c:'KOORDINATOR DAN KONSUMSI', d:{style:'grid-column:1/span '+(data.length*3)+'; background:white; font: bold 12px Arial; padding-top:20px; text-align:center;'}})
+	data[0].c.forEach((a,b)=>{
+		b<3&&data.forEach(a=>{
+			el({a:'div', b:c, c:b+1, d:{style:style3 + 'justify-content:center;'}})
+			el({a:'div', b:c, c:a.c[b]?a.c[b].a:'', d:{style:style3 + 'justify-content:center; padding:3px;'}})
+			el({a:'div', b:c, c:a.c[b]?a.c[b].b:'', d:{style:style3 + 'padding:3px 3px 3px 5px;'}})
+		})
+	})
+	
+	el({a:'div', b:b, d:{style:'height:20px;'}})
+	const style4={style:'font:bold 9px Arial; align-self:start; padding-left:60px; white-space:pre;'}
+	el({a:'div', b:b, c:'\u27A2     DIMOHON KESADARANNYA JIKA ANDA MASIH MERASA MENJADI BAGIAN DARI WARGA RT 07, UNTUK AGA DI POS RT 07 MULAI JAM 22.00 S/D 01.00 WIB', d:style4})
+	el({a:'div', b:b, c:'\u27A2     BAGI WARGA YANG BERHALANGAN / TIDAK HADIR DIMOHON KOORDINASI DENGAN PENGURUS RT / KETUA GRUP', d:style4})
+	el({a:'div', b:b, c:'\u27A2     ATAU SESAMA WARGA YANG LAIN, UNTUK TUKAR JAGA MINGGU SEBELUMNYA / MINGGU BERIKUTNYA', d:style4})
+	el({a:'div', b:b, c:'\u27A2     MARI BERSAMA JADIKAN LINGKUNGAN TEMPAT TINGGAL KITA AMAN, DAMAI, TENTRAM, BERSIH & INDAH', d:style4})
+	el({a:'div', b:b, c:'\u27A2     PETUGAS JAGA BERTANGGUNG JAWAB TERHADAP KEBERADAAN UANG JIMPITAN & MENGISI BUKU HADIR', d:style4})
+	el({a:'div', b:b, c:'\u27A2     BILA TIDAK HADIR 2 KALI PERTEMUAN & TIDAK ADA KETERANGAN, AKAN DIKENAKAN DENDA Rp. 30.000,-', d:style4})
+	el({a:'div', b:b, d:{style:'height:20px;'}})
+	el({a:'div', b:b, c:'        Wonoayu, '+(a=>(a.getDate()<10?'0':'')+a.getDate()+' '+bln[a.getMonth()]+' '+a.getFullYear())(new Date()), d:{style:style4.style+'font:bold 10px Times;'}})
+	el({a:'div', b:b, c:'        Mengetahui,', d:{style:style4.style+'font:bold 10px Times;'}})
+	
+	const d=el({a:'div', b:b, d:{style:'width:900px; display:flex; padding-top:10px;'}})
+	el({a:'div', b:d, d:{style:'display:flex; flex-direction:column; gap:50px; align-items:center;'}})
+	el({a:'div', b:d, d:{style:'display:flex; flex-direction:column; gap:50px; align-items:center; padding-left:500px;'}})
+	el({a:'div', b:d.children[0], c:'KETUA RT 07', d:{style:'font:bold 10px Arial;'}})
+	el({a:'div', b:d.children[0], c:'( Agus Sutomo )', d:{style:'font:bold 10px Times; white-space:pre;'}})
+	el({a:'div', b:d.children[1], c:'SIE KEAMANAN', d:{style:'font:bold 10px Arial;'}})
+	el({a:'div', b:d.children[1], c:'( Gatot P. )', d:{style:'font:bold 10px Times; white-space:pre;'}})
+	
+	html2canvas(b, {
+		allowTaint: true,
+		//useCORS: true,
+		//logging: false,
+		height: b.height,
+		windowHeight: b.height,
+		width: b.width,
+		windowWidth: b.width,
+	}).then(a=>{window.open(a.toDataURL())})
+	
+	new jspdf.jsPDF('l', 'pt', [842, 1191]).html(b, { callback: doc=>{ doc.save() } })
+}
+
 const hasil=a=>{
 	const b=el({a:'div', b:document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:100vh; overflow-y:scroll; background:white; padding:3vmin; display:grid; grid-template-columns:min-content min-content 1fr; gap:3px; align-content:start;'}, e:{click:a=>{a.stopPropagation()}}})
 	const c=[], d=[], w=[...warga]
@@ -151,8 +222,7 @@ const hasil=a=>{
 	
 	const f=el({a:'div', b: document.body, d:{style:'position:fixed; bottom:0; left:0; width:100vw; background:white; padding:3vmin; display:flex; justify-content:space-between; gap:1vmin;'}, e:{click:a=>{a.stopPropagation()}}})
 	el({a:'button', b:f, c:'Kembali', e:{click:a=>{document.body.removeChild(a.target.parentElement.previousElementSibling);document.body.removeChild(a.target.parentElement)}}})
-	el({a:'button', b:f, c:'sek pak, durung iso nyimpen'})
-	el({a:'button', b:f, c:'sek pak, durung iso preview / cetak'})
+	el({a:'button', b:f, c:'download', e:{click:gambar}})
 	el({a:'div', b:b, d:{style:'grid-column:1/span 3; height:'+(f.getBoundingClientRect().height+10)+'px'}})
 }
 
