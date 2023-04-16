@@ -198,9 +198,9 @@ const hasil=a=>{
 	data.length>0&&data.splice(0,data.length)
 	while (a.a>0) {
 		a.a--
-		const e=(a=>(a.getDate()<10?'0':'')+a.getDate()+'-'+(a.getMonth()<10?'0':'')+(a.getMonth()+1)+'-'+a.getFullYear())(new Date(a.t, a.b, a.d+(a.a*7)))
-		const f=(a=>(a.getDate()<10?'0':'')+a.getDate()+'-'+(a.getMonth()<10?'0':'')+(a.getMonth()+1)+'-'+a.getFullYear())(new Date(a.t, a.b, a.d+a.c+(a.a*7)))
-		const g=(a=>(a.getDate()<10?'0':'')+a.getDate()+'-'+(a.getMonth()<10?'0':'')+(a.getMonth()+1)+'-'+a.getFullYear())(new Date(a.t, a.b, a.d+2*a.c+(a.a*7)))
+		const e=(a=>(a.getDate()<10?'0':'')+a.getDate()+'-'+(a.getMonth()<9?'0':'')+(a.getMonth()+1)+'-'+a.getFullYear())(new Date(a.t, a.b, a.d+(a.a*7)))
+		const f=(a=>(a.getDate()<10?'0':'')+a.getDate()+'-'+(a.getMonth()<9?'0':'')+(a.getMonth()+1)+'-'+a.getFullYear())(new Date(a.t, a.b, a.d+a.c+(a.a*7)))
+		const g=(a=>(a.getDate()<10?'0':'')+a.getDate()+'-'+(a.getMonth()<9?'0':'')+(a.getMonth()+1)+'-'+a.getFullYear())(new Date(a.t, a.b, a.d+2*a.c+(a.a*7)))
 		data[a.a]={a:String.fromCharCode(65+a.a), b:[e,f,g], c:[]}
 	}
 	const w=[...warga]
