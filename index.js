@@ -171,6 +171,7 @@ const gambar=()=>{
 	el({a:'div', b:d.children[1], c:'SIE KEAMANAN', d:{style:'font:bold 10px Arial;'}})
 	el({a:'div', b:d.children[1], c:'( Gatot P. )', d:{style:'font:bold 10px Times; white-space:pre;'}})
 	
+	new jspdf.jsPDF('l', 'pt', [842, 1191]).html(b, { callback: doc=>{ doc.save('JAGA-RT07-'+((a=>bln[a.getMonth()]+'-'+a.getFullYear())(new Date()))+'.pdf') } })
 	html2canvas(b, {
 		allowTaint: true,
 		height: b.height,
@@ -183,8 +184,6 @@ const gambar=()=>{
 			href: a.toDataURL('image/png').replace(/^data:image\/png/,'data:application/octet-stream')
 		}, e:{click:a=>{document.body.removeChild(a.target)}}}).click()
 	});
-	
-	new jspdf.jsPDF('l', 'pt', [842, 1191]).html(b, { callback: doc=>{ doc.save('JAGA-RT07-'+((a=>bln[a.getMonth()]+'-'+a.getFullYear())(new Date()))+'.pdf') } })
 }
 
 const hasil=a=>{
