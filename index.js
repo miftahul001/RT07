@@ -114,6 +114,7 @@ const pilihHari=()=>{
 	el({a:'button', b:a, c:'Kembali', e:{click:a=>{document.body.removeChild(a.target.parentElement)}}})
 }
 
+const data=[]
 const gambar=()=>{
 	const b=el({a:'div', b:el({a:'div', b:el({a:'div', b:document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:100vh; display:flex; overflow:scroll; background:black;'}})}), d:{style:'background:white; width:1191px; height:842px; display:flex; flex-direction:column; gap:1px; justify-content: center; align-items:center;'}})
 	const style1={style:'font: bold 15px Arial;'}
