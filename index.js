@@ -13,7 +13,7 @@ const warga=[
 	{a:'C5-01', b:'YUDI SETIAWAN'},
 	{a:'C5-16', b:'KUSNO'},
 	{a:'C3-19', b:'SUWITO'},
-	{a:'A3-17', b:'WARKOP'},
+	{a:'A3-18', b:'WARKOP'},
 	{a:'C3-11', b:'MEIRIL ISA'},
 	{a:'C5-03', b:'GATOT P.'},
 	{a:'C5-10', b:'RIYANTO'},
