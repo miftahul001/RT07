@@ -191,7 +191,7 @@ const gambar=()=>{
 
 const hasil=a=>{
 	const b=el({a:'div', b:document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:100vh; overflow-y:scroll; background:white; padding:3vmin; display:grid; grid-template-columns:min-content min-content 1fr; gap:3px; align-content:start;'}, e:{click:a=>{a.stopPropagation()}}})
-	const c=[], d=[], w=[...warga]
+	const w=[...warga]
 	a.a<2&&(a.a=6)
 	a.c=a.a*7
 	while (a.a>0) {
@@ -199,18 +199,18 @@ const hasil=a=>{
 		const e=(a=>(a.getDate()<10?'0':'')+a.getDate()+'-'+(a.getMonth()<10?'0':'')+(a.getMonth()+1)+'-'+a.getFullYear())(new Date(a.t, a.b, a.d+(a.a*7)))
 		const f=(a=>(a.getDate()<10?'0':'')+a.getDate()+'-'+(a.getMonth()<10?'0':'')+(a.getMonth()+1)+'-'+a.getFullYear())(new Date(a.t, a.b, a.d+a.c+(a.a*7)))
 		const g=(a=>(a.getDate()<10?'0':'')+a.getDate()+'-'+(a.getMonth()<10?'0':'')+(a.getMonth()+1)+'-'+a.getFullYear())(new Date(a.t, a.b, a.d+2*a.c+(a.a*7)))
-		c[a.a]={a:String.fromCharCode(65+a.a), b:[e,f,g], c:[]}
+		data[a.a]={a:String.fromCharCode(65+a.a), b:[e,f,g], c:[]}
 	}
 	while (w.length>0) {
-		c.forEach((a,b)=>{
+		data.forEach((a,b)=>{
 			if (w.length>0) {
 				const d=Math.floor(Math.random()*(w.length-1))
-				c[b].c.push(w[d])
+				data[b].c.push(w[d])
 				w.splice(d,1)
 			}
 		})
 	}
-	c.forEach(a=>{
+	data.forEach(a=>{
 		const c={style:'background:#abc; border-radius:1vmin; font-weight:bold; padding:1vmin 3vmin; text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:1vmin;'}
 		el({a:'div', b:el({a:'div', b:el({a:'div', b:b, d:c}), c:'GRUP'}).parentElement, c:a.a})
 		el({a:'div', b:el({a:'div', b:el({a:'div', b:b, d:c}), c:'Hari'}).parentElement, c:'Sabtu'})
