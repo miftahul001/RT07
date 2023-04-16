@@ -191,6 +191,7 @@ const hasil=a=>{
 	const w=[...warga]
 	a.a<2&&(a.a=6)
 	a.c=a.a*7
+	data.length>0&&data.splice(0,data.length)
 	while (a.a>0) {
 		a.a--
 		const e=(a=>(a.getDate()<10?'0':'')+a.getDate()+'-'+(a.getMonth()<10?'0':'')+(a.getMonth()+1)+'-'+a.getFullYear())(new Date(a.t, a.b, a.d+(a.a*7)))
