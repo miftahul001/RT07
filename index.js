@@ -113,6 +113,7 @@ const pilihHari=()=>{
 }
 
 const data=[]
+const lama=[]
 const gambar=()=>{
 	const b=el({a:'div', b:el({a:'div', b:el({a:'div', b:document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:100vh; display:flex; overflow:scroll; background:black;'}})}), d:{style:'background:white; width:1191px; height:842px; display:flex; flex-direction:column; gap:1px; justify-content: center; align-items:center;'}})
 	const style1={style:'font: bold 15px Arial;'}
@@ -188,7 +189,6 @@ const gambar=()=>{
 
 const hasil=a=>{
 	const b=el({a:'div', b:document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:100vh; overflow-y:scroll; background:white; padding:3vmin; display:grid; grid-template-columns:min-content min-content 1fr; gap:3px; align-content:start;'}, e:{click:a=>{a.stopPropagation()}}})
-	const w=[...warga]
 	a.a<2&&(a.a=6)
 	a.c=a.a*7
 	data.length>0&&data.splice(0,data.length)
@@ -199,10 +199,33 @@ const hasil=a=>{
 		const g=(a=>(a.getDate()<10?'0':'')+a.getDate()+'-'+(a.getMonth()<10?'0':'')+(a.getMonth()+1)+'-'+a.getFullYear())(new Date(a.t, a.b, a.d+2*a.c+(a.a*7)))
 		data[a.a]={a:String.fromCharCode(65+a.a), b:[e,f,g], c:[]}
 	}
+	const w=[...warga]
+	lama.forEach(a=>{
+		a.c.forEach((a,b)=>{
+			if (b<3) {
+				const c=w.findIndex(b=>b.a==a.a&&b.b==a.b)
+				c>-1&&w.splice(c,1)
+			}
+		})
+	})
 	while (w.length>0) {
 		data.forEach((a,b)=>{
 			if (w.length>0) {
 				const d=Math.floor(Math.random()*(w.length-1))
+				data[b].c.push(w[d])
+				w.splice(d,1)
+			}
+		})
+	}
+	lama.forEach(a=>{
+		a.c.forEach((a,b)=>{
+			b<3&&w.push(a)
+		})
+	})
+	while (w.length>0) {
+		data.forEach((a,b)=>{
+			if (w.length>0) {
+				const d=Math.floor(Math.random()*(w.length))
 				data[b].c.push(w[d])
 				w.splice(d,1)
 			}
@@ -231,7 +254,16 @@ const hasil=a=>{
 addEventListener('load', ()=>{
 	el({a:'div', b: document.body, c:'DAFTAR JAGA RT 07 RW 04', d:{style:'font-size:4vmin; font-weight:bold; margin-bottom:5vmin; padding:5vmin; text-align:center;'}})
 	el({a:'button', b:el({a:'button', b:el({a:'button', b:el({a:'div', b: document.body, d:{style:'display:flex; flex-direction:column; gap:3vmin; padding:3vmin;'}}),
-		c:'Upload Daftar Jaga Lama'}).parentElement,
+		c:'Upload Daftar Jaga Lama', e:{click:a=>{
+			el({a:'input', d:{type:'file'}, e:{change:a=>{
+				const b=new FileReader()
+				b.onload=()=>{
+					lama.length>0&&lama.splice(0,lama.length)
+					JSON.parse(b.result).forEach(a=>{lama.push(a)})
+				}
+				b.readAsText(a.target.files[0])
+			}}}).click()
+		}}}).parentElement,
 		c:'Buat Daftar Jaga Baru', e:{click:pilihHari}}).parentElement,
 		c:'Daftar Warga RT 07 RW 04', e:{click:daftarWarga}})
 })
